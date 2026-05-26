@@ -98,14 +98,16 @@ recs_df = pd.DataFrame([
 recs_df if not recs_df.empty else "Nothing in the next 7 days."
 ```
 
-## Weather — last 14 days, next 7 forecast
+## Weather — cumulative over the season
 
 ```{python}
+WINDOW_DAYS = 60   # how far back to accumulate
+
 obs = []
 for loc in locations:
     if not (loc.lat and loc.lon):
         continue
-    for o in ga.storage.list_observations(location_id=loc.id, since=NOW - timedelta(days=14)):
+    for o in ga.storage.list_observations(location_id=loc.id, since=NOW - timedelta(days=WINDOW_DAYS)):
         if o.value_numeric is None or o.source is None or not o.source.startswith("provider:"):
             continue
         obs.append({
@@ -116,32 +118,40 @@ for loc in locations:
         })
 
 weather_df = pd.DataFrame(obs)
+```
 
+```{python}
+# Cumulative rainfall — running total of daily rain per bed.
 if weather_df.empty:
     "No weather observations yet — run `garden weather` in the garden repo."
 else:
-    rain = weather_df[weather_df.metric == "rain_mm"]
-    fig = px.bar(
-        rain.sort_values("date"),
-        x="date", y="value", color="bed",
-        labels={"value": "rain (mm)", "date": ""},
-        title="Daily rain",
+    rain = weather_df[weather_df.metric == "rain_mm"].sort_values("date").copy()
+    rain["cumulative_mm"] = rain.groupby("bed")["value"].cumsum()
+    fig = px.line(
+        rain,
+        x="date", y="cumulative_mm", color="bed",
+        labels={"cumulative_mm": "cumulative rain (mm)", "date": ""},
+        title="Cumulative rainfall",
     )
-    fig.update_layout(height=300, margin=dict(t=40, b=20))
+    fig.update_layout(height=320, margin=dict(t=40, b=20), hovermode="x unified")
     fig.show()
 ```
 
 ```{python}
+# Cumulative growing degree days — running total of max(0, mean_temp − 10°C),
+# the same accumulation the recommendation engine uses to drive growth stages.
 if not weather_df.empty:
-    temps = weather_df[weather_df.metric.isin(["temp_c_min", "temp_c_mean", "temp_c_max"])]
-    if not temps.empty:
+    gdd = weather_df[weather_df.metric == "temp_c_mean"].sort_values("date").copy()
+    if not gdd.empty:
+        gdd["gdd_day"] = (gdd["value"] - 10).clip(lower=0)
+        gdd["cumulative_gdd"] = gdd.groupby("bed")["gdd_day"].cumsum()
         fig = px.line(
-            temps.sort_values("date"),
-            x="date", y="value", color="metric", line_dash="bed",
-            labels={"value": "°C", "date": ""},
-            title="Temperature (min / mean / max)",
+            gdd,
+            x="date", y="cumulative_gdd", color="bed",
+            labels={"cumulative_gdd": "cumulative GDD (base 10°C)", "date": ""},
+            title="Cumulative growing degree days",
         )
-        fig.update_layout(height=300, margin=dict(t=40, b=20))
+        fig.update_layout(height=320, margin=dict(t=40, b=20), hovermode="x unified")
         fig.show()
 ```
 
