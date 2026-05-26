@@ -1,0 +1,19 @@
+---
+title: "Erich Trieschman"
+toc: false
+---
+
+Placeholder homepage. Replace this with your bio, links, etc.
+
+::: {.callout-note}
+Edit `index.qmd` to populate this page. Markdown works; so do Jupyter code cells if you want live data.
+:::
+
+## Around the site
+
+- **[Papers](papers.qmd)** — publications
+- **[Garden](garden.qmd)** — live dashboard for my home garden tracker
+
+## Elsewhere
+
+- [GitHub](https://github.com/etrieschman)

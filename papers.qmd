@@ -1,0 +1,15 @@
+---
+title: "Papers"
+---
+
+Placeholder for publications. Quarto supports BibTeX (`@cite-key`) and a `references.bib` file — see [the Quarto citation docs](https://quarto.org/docs/authoring/citations.html) when you're ready to add entries.
+
+## Example layout
+
+### 2026
+
+- *Working paper title here* — Trieschman, et al. (placeholder)
+
+### 2025
+
+- *Another paper title here* — Trieschman, et al. (placeholder)

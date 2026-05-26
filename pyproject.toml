@@ -1,0 +1,21 @@
+[project]
+name = "etrieschman-site"
+version = "0.1.0"
+description = "Erich Trieschman — personal site"
+requires-python = ">=3.13"
+dependencies = [
+    "garden",
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.9",
+    "pandas>=3.0.3",
+    "plotly>=6.7.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "garden",
+]
+
+[tool.uv.sources]
+garden = { workspace = true, editable = true }

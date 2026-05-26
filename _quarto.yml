@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - papers.qmd
+    - garden.qmd
+
+website:
+  title: "Erich Trieschman"
+  description: "Personal site"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: papers.qmd
+        text: Papers
+      - href: garden.qmd
+        text: Garden
+    right:
+      - icon: github
+        href: https://github.com/etrieschman
+        aria-label: GitHub
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    smooth-scroll: true
+    code-fold: true
+    code-tools: false

@@ -1,0 +1,15 @@
+/* Minimal overrides on top of the Cosmo theme. */
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+/* tighter table styling for the garden page */
+.dataframe {
+  font-size: 0.9rem;
+}
+
+/* DataFrame tables: zebra-strip + reasonable padding */
+.dataframe th, .dataframe td {
+  padding: 0.4rem 0.6rem;
+}
