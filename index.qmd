@@ -3,16 +3,18 @@ title: "Erich Trieschman"
 toc: false
 about:
   template: trestles
-  image: profile.jpg
+  image: images/profile.jpg
   image-shape: round
   image-width: 12em
   links:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/erichtrieschman
+      target: _blank
     - icon: github
       text: GitHub
       href: https://github.com/etrieschman
+      target: _blank
 ---
 
 I'm a PhD student at MIT in the Department of Civil and Environmental

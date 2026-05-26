@@ -9,24 +9,24 @@ project:
 website:
   title: "Erich Trieschman"
   description: "Personal site"
+  open-graph: true
+  favicon: images/favicon.png
   navbar:
     background: "#2d4a3e"   # dark green banner
     foreground: "#ffffff"
     left:
-      - href: index.qmd
-        text: Home
       - href: papers.qmd
         text: Papers
       - href: garden.qmd
         text: Garden
-    page-footer:
+    right:
       - icon: github
         href: https://github.com/etrieschman
         aria-label: GitHub
-    # page-footer:
-    #   background: "#1f3d2b"
-    #   foreground: "#ffffff"
-    #   left: "© 2026 Erich Trieschman"
+    page-footer:
+      background: "#1f3d2b"
+      foreground: "#ffffff"
+      left: "© 2026 Erich Trieschman"
 
 format:
   html:
@@ -37,3 +37,5 @@ format:
     smooth-scroll: true
     code-fold: true
     code-tools: false
+    link-external-newwindow: true
+    link-external-icon: true     # optional: adds a small ↗ icon
