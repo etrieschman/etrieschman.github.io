@@ -1,19 +1,29 @@
 ---
 title: "Erich Trieschman"
 toc: false
+about:
+  template: trestles
+  image: profile.jpg
+  image-shape: round
+  image-width: 12em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/erichtrieschman
+    - icon: github
+      text: GitHub
+      href: https://github.com/etrieschman
 ---
 
-Placeholder homepage. Replace this with your bio, links, etc.
+I'm a PhD student at MIT in the Department of Civil and Environmental
+Engineering and the Laboratory for Information and Decision Systems,
+advised by [Saurabh Amin](https://cee.mit.edu/people_individual/saurabh-amin/).
+My research is on electricity market design, with a current focus on
+financial transmission rights and the structural misalignments that
+arise in market clearing.
 
-::: {.callout-note}
-Edit `index.qmd` to populate this page. Markdown works; so do Jupyter code cells if you want live data.
-:::
+Before MIT, I traded in ERCOT for Equilibrium Energy, modeled soil carbon at Indigo Agriculture, 
+and worked in economic consulting at Analysis Group. I studied math at Williams College and statistics
+and operations research at Stanford.
 
-## Around the site
-
-- **[Papers](papers.qmd)** — publications
-- **[Garden](garden.qmd)** — live dashboard for my home garden tracker
-
-## Elsewhere
-
-- [GitHub](https://github.com/etrieschman)
+Outside of research I cycle, follow Arsenal more closely than is necessary, and spend time with my family.

@@ -10,6 +10,8 @@ website:
   title: "Erich Trieschman"
   description: "Personal site"
   navbar:
+    background: "#2d4a3e"   # dark green banner
+    foreground: "#ffffff"
     left:
       - href: index.qmd
         text: Home
@@ -17,16 +19,21 @@ website:
         text: Papers
       - href: garden.qmd
         text: Garden
-    right:
+    page-footer:
       - icon: github
         href: https://github.com/etrieschman
         aria-label: GitHub
+    # page-footer:
+    #   background: "#1f3d2b"
+    #   foreground: "#ffffff"
+    #   left: "© 2026 Erich Trieschman"
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    linkcolor: "#1a5fb4"
     smooth-scroll: true
     code-fold: true
     code-tools: false
