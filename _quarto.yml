@@ -10,7 +10,7 @@ website:
   title: "Erich Trieschman"
   description: "Personal site"
   open-graph: true
-  favicon: images/favicon.png
+  favicon: images/favicon.jpg
   navbar:
     background: "#2d4a3e"   # dark green banner
     foreground: "#ffffff"
