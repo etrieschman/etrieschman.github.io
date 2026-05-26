@@ -98,16 +98,29 @@ recs_df = pd.DataFrame([
 recs_df if not recs_df.empty else "Nothing in the next 7 days."
 ```
 
-## Weather — cumulative over the season
+## Weather — cumulative since transplant
+
+Each bed's rainfall and growing-degree-day clocks start the day the first plant
+was transplanted into it (going outdoors), not from an arbitrary window.
 
 ```{python}
-WINDOW_DAYS = 60   # how far back to accumulate
+# Earliest outdoor transplant per bed — the cumulative clocks start here.
+bed_start = {}
+for loc in locations:
+    transplant_dates = [
+        e.occurred_at
+        for e in ga.storage.list_events(location_id=loc.id)
+        if e.type.value == "transplanted"
+    ]
+    if transplant_dates:
+        bed_start[loc.id] = min(transplant_dates)
 
 obs = []
 for loc in locations:
-    if not (loc.lat and loc.lon):
+    if loc.id not in bed_start or not (loc.lat and loc.lon):
         continue
-    for o in ga.storage.list_observations(location_id=loc.id, since=NOW - timedelta(days=WINDOW_DAYS)):
+    # `since` = this bed's transplant date, so accumulation starts at zero there.
+    for o in ga.storage.list_observations(location_id=loc.id, since=bed_start[loc.id]):
         if o.value_numeric is None or o.source is None or not o.source.startswith("provider:"):
             continue
         obs.append({
