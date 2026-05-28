@@ -4,7 +4,7 @@ project:
   render:
     - index.qmd
     - papers.qmd
-    - garden.qmd
+    - projects.qmd
 
 website:
   title: "Erich Trieschman"
@@ -17,8 +17,8 @@ website:
     left:
       - href: papers.qmd
         text: Papers
-      - href: garden.qmd
-        text: Garden
+      - href: projects.qmd
+        text: Projects
     right:
       - icon: github
         href: https://github.com/etrieschman

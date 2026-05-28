@@ -1,0 +1,18 @@
+---
+title: "Projects"
+toc: false
+listing:
+  contents:
+    - title: "Electricity markets graph"
+      description: "A visualization tool for the actors in electricity markets."
+      path: "https://etrieschman.github.io/electricity-markets-graph/"
+    - title: "Garden"
+      description: "Recommendation engine and dashboard for my home garden."
+      path: "https://etrieschman.github.io/garden/"
+  type: grid
+  grid-columns: 2
+  fields: [title, description]
+  sort: false
+  filter-ui: false
+  sort-ui: false
+---
