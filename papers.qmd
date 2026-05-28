@@ -5,12 +5,10 @@ title: "Papers"
 ## Working papers
 
 ::: {.pub-entry}
-**Optimal design of financial transmission rights**  
+**Structural Misalignment in Financial Transmission Rights**  
 Erich Trieschman, Saurabh Amin.  
-*Submitted to PowerUp 2026.*  
-[[arXiv](https://arxiv.org/abs/XXXX.XXXXX)] · 
-[[Google Scholar](https://scholar.google.com/citations?user=YOUR_ID)] · 
-[[PDF](papers/ftr-design.pdf)]
+*Accepted to PowerUp 2026.*  
+[[arXiv](https://arxiv.org/abs/2604.17586)] · 
 :::
 
 ## Earlier work
